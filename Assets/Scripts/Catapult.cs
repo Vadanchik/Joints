@@ -7,6 +7,7 @@ public class Catapult : MonoBehaviour
     [SerializeField] private ForceMode _forceMode;
     [SerializeField] private Rigidbody _prefab;
     [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private float _reloadTime = 3;
 
     private Rigidbody _currentBall;
     private SpringJoint _joint;
@@ -38,9 +39,9 @@ public class Catapult : MonoBehaviour
         _currentBall.isKinematic = false;
         _spoon.AddRelativeTorque(_torque, _forceMode);
 
-        yield return new WaitForSeconds(3);
-        SpawnBall();
+        yield return new WaitForSeconds(_reloadTime);
 
+        SpawnBall();
         _isReady = true;
     }
 
