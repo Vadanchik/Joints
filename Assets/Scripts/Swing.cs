@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Swing : MonoBehaviour
+public class Swing : MonoBehaviour, IInteractable
 {
     [SerializeField] private HingeJoint _joint;
     [SerializeField] private float _forceValue;
@@ -12,7 +12,7 @@ public class Swing : MonoBehaviour
         _rigidbody = _joint.connectedBody;
     }
 
-    private void OnMouseDown()
+    public void Interact()
     {
         Push();
     }

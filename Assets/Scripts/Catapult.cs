@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class Catapult : MonoBehaviour
+[RequireComponent(typeof(SpringJoint))]
+public class Catapult : MonoBehaviour, IInteractable
 {
     [SerializeField] private Vector3 _torque;
     [SerializeField] private ForceMode _forceMode;
@@ -25,7 +26,7 @@ public class Catapult : MonoBehaviour
         SpawnBall();
     }
 
-    private void OnMouseDown()
+    public void Interact()
     {
         if (_isReady)
         {
